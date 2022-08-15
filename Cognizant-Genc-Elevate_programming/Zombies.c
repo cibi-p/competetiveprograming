@@ -13,13 +13,12 @@ Return the favourable city index "i"
 */
 #include<stdio.h>
 
-int gcd(int n, int n1){
+int gcd(int n, int n1){  //Finding the common difference
   int gcd=0;
   for(int i=1; i<=n && i<=n1; i++){
     if(n%i==0 && n1%i==0)
       gcd=i;
   }
-
   return gcd;
 }
 
@@ -33,12 +32,14 @@ int main()
     scanf("%d", &perc_city[i]);
   }
   for(int i=0; i<n-1; i++){
+    //magical city check
     int common=gcd(perc_city[i], perc_city[i+1]);
     if(common==1)
       magical=1;
     else
       magical=0;
 
+    //good city check
     if(perc_city[i]>perc_city[i+1])
       good=1;
     else
